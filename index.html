@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>離營 QR</title>
+  <link rel="manifest" href="manifest.json" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      background: #d80027;
+      color: white;
+      font-family: "Arial", "微軟正黑體", sans-serif;
+      text-align: center;
+    }
+    .title {
+      font-size: 38px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: yellow;
+    }
+    img {
+      width: 80%;
+      max-width: 400px;
+      margin: 20px auto;
+      display: block;
+    }
+    .timestamp {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    .label {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">離開營區</div>
+  <img src="qr_full.jpg" alt="QR 畫面">
+  <div class="timestamp">
+    <div class="label">時間來源：網路</div>
+    <div id="time"></div>
+  </div>
+  <script>
+    const now = new Date();
+    const year = now.getFullYear() - 1911;
+    const mo = (now.getMonth() + 1).toString().padStart(2, '0');
+    const da = now.getDate().toString().padStart(2, '0');
+    const h = now.getHours().toString().padStart(2, '0');
+    const m = now.getMinutes().toString().padStart(2, '0');
+    const s = now.getSeconds().toString().padStart(2, '0');
+    document.getElementById("time").textContent = `${year}/${mo}/${da} ${h}:${m}:${s}`;
+  </script>
+</body>
+</html>
