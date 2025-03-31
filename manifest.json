@@ -1,0 +1,10 @@
+
+{
+  "name": "離營 QR 模擬",
+  "short_name": "離營 QR",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#d80027",
+  "theme_color": "#d80027",
+  "icons": []
+}
