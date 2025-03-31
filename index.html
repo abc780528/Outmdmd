@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>離營 QR 模擬</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      font-family: "Arial", "微軟正黑體", sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+    }
+    .container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .time-label {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="background.jpg" alt="QR Background">
+    <div class="time-label" id="timeLabel"></div>
+  </div>
+
+  <script>
+    const now = new Date();
+    const year = now.getFullYear() - 1911;
+    const mo = (now.getMonth() + 1).toString().padStart(2, '0');
+    const da = now.getDate().toString().padStart(2, '0');
+    const h = now.getHours().toString().padStart(2, '0');
+    const m = now.getMinutes().toString().padStart(2, '0');
+    const s = now.getSeconds().toString().padStart(2, '0');
+    const timeString = `114/${mo}/${da} ${h}:${m}:${s}`;
+    document.getElementById("timeLabel").innerText = "時間來源：  網路\n" + timeString;
+  </script>
+</body>
+</html>
